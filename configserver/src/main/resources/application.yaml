@@ -1,0 +1,37 @@
+#spring:
+#  application:
+#    name: configserver
+#
+#  profiles:
+#    active: native
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          search-location: classpath:/config
+#
+#server:
+#  port: 8888
+
+
+server:
+  port: 8888
+
+spring:
+  application:
+    name: configserver
+
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-location: classpath:/config
+
+  # Yeh wali security config yahan daalne se saari microservices ko mil jayegi!
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:8181/realms/Fitness-App/protocol/openid-connect/certs
